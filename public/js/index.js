@@ -16,15 +16,14 @@ const store = {
         repos:[],
       },
       urlGit: "https://api.github.com/users/19yisus",
-      token: "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",
+      token: "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",
     }
   },
   methods:{
     async GetDatosUserFromGit(){
       await fetch(`${this.urlGit}`,{
         headers:{
-          'Authorization': `Token ${this.token}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Authorization': `Basic ${this.token}`,
         }      
       }).then( (response) => response.json()).then( res =>{
         this.user.name = res.name;
