@@ -1,0 +1,20 @@
+{
+  "name": "porfolio-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss public/css/tailwind.css --output public/css/estilos.css",
+    "watch": "postcss public/css/tailwind.css --output public/css/estilos.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.3.0",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.4"
+  },
+  "devDependencies": {
+    "postcss-cli": "^8.3.1"
+  }
+}
