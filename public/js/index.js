@@ -16,7 +16,7 @@ const store = {
         repos:[],
       },
       urlGit: "https://api.github.com/users/19yisus",
-      token: "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",
+      token: "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",
     }
   },
   methods:{
