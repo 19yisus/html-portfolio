@@ -9,6 +9,7 @@ const store = {
         alias: null,
         email: null,
         bioInfo: null,
+        AboutMe: null,
         creado: null,
         giturl: null,
         countPublicRepos: 0,
@@ -16,16 +17,12 @@ const store = {
         repos:[],
       },
       urlGit: "https://api.github.com/users/19yisus",
-      token: "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",
+      token: "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",
     }
   },
   methods:{
     async GetDatosUserFromGit(){
-      await fetch(`${this.urlGit}`,{
-        headers:{
-          'Authorization': `Token ${this.token}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }      
+      await fetch(`${this.urlGit}`,{ headers:{ 'Authorization': `Basic ${this.token}`}      
       }).then( (response) => response.json()).then( res =>{
         this.user.name = res.name;
         this.user.avatar = res.avatar_url;
@@ -36,12 +33,11 @@ const store = {
         this.user.giturl = res.html_url;
         this.user.countPublicRepos = res.public_repos;
         this.user.urlPublicRepos = res.repos_url
-      })
+      }).catch( Err => console.error(Err))
+      console.log(this.user)
     },
     async GetDatosRepo(){
-      await fetch(`${this.urlGit}/repos`).then( response => response.json()).then( res =>{
-        this.user.repos = res;
-      })
+      await fetch(`${this.urlGit}/repos`).then( response => response.json()).then( res => this.user.repos = res).catch( Err => console.error(Err))
     },
     DarkMode(){
       let htmlClasses = document.querySelector('html').classList;

@@ -6,42 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- STYLES CSS -->
   <link rel="stylesheet" href="./public/css/estilos.css">
-  <!-- REQUIRES SCRIPTS -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- REQUIRES SCRIPTS -->
   <script src="https://unpkg.com/vue@next"></script>
-  <script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
+  <script src="./public/js/index.js" defer></script>
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./public/svg/php-brands.svg" type="image/x-icon">  
   <title>Portfolio</title>
 </head>
 <body id="app">
   <div :class="{'bg-gray-800': Dark}" class="flex flex-col flex-shrink transition duration-500 ease-in-out sm:w-full sm:h-full relative">
 
-    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}" class="container transition duration-500 ease-in-out fixed top-2 left-16 sm:left-20 right-16 sm:right-20 flex flex-row w-4/5 flex-grow flex-shrink mx-auto justify-between items-baseline rounded-md px-1 p-1 shadow-md" >
+    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}" class="container transition duration-500 ease-in-out fixed top-2 inset-x-4 sm:inset-x-14 flex flex-row w-11/12 justify-between items-baseline rounded-md px-1 p-1 shadow-md" >
       
-      <div class="flex flex-row items-center">
+      <a href="#Home"class="flex flex-row items-center">
         <i class='bx bx-laptop bx-sm fill-current text-purple-400'></i>
         <h3 class="font-semibold capitalize text-purple-400">Dev. {{ user.name }}</h3>
-      </div>
-      
+      </a>
+            
       <div class="flex flex-col sm:flex-row items-center space-x-1 px-3 mr-2 transition duration-500 ease-in-out">
         <div class="flex flex-row space-x-1 transition duration-500 ease-in-out">
-          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="flex flex-row justify-center transition duration-500 ease-in-out rounded-md p-1" @click="DarkMode();">
+          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="DarkMode();">
             <i v-if="Dark == false" class='bx bx-sun bx-sm fill-current text-purple-400' ></i>
             <i v-else class='bx bx-moon bx-sm fill-current text-purple-400' ></i>
           </button>
-          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="sm:hidden flex flex-row justify-center transition duration-500 ease-in-out rounded-md p-1" @click="displayNavbar()">
+          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="sm:hidden flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="displayNavbar()">
             <i class='bx bx-list-ul bx-sm fill-current text-purple-400'></i>
           </button>
         </div>
         
-        <nav class="hidden sm:flex sm:flex-row flex-col justify-center justify-items-start sm:justify-around transition duration-500 ease-in-out space-x-2 rounded-lg font-semibold items-center sm:m-1 sm:p-1" id="navbar">
+        <nav class="hidden sm:flex sm:flex-row flex-col justify-center justify-items-start sm:justify-around space-x-2 rounded-lg font-semibold items-center sm:m-1 sm:p-1" id="navbar">
           <a href="#About" class="hover:text-purple-400">About me</a>
-          <a href="#Work" class="hover:text-purple-400">Work</a>
+          <a href="#Projects" class="hover:text-purple-400">Projects</a>
           <a href="#" class="hover:text-purple-400">Contact</a>
         </nav>
       </div>
     </div>
-    <div class="container flex flex-col sm:flex-row justify-center sm:justify-between items-center w-full sm:h-96 mt-14 sm:mt-0 sm:my-3 mx-auto">
+    <div class="container flex flex-col sm:flex-row justify-center sm:justify-between items-center w-full sm:h-96 mt-14 sm:mt-0 sm:my-3 mx-auto" id="Home">
       <div class="flex flex-col flex-shrink flex-wrap justify-center text-center sm:text-left mx-2">
         <h3 class="text-7xl font-bold text-purple-400 subpixel-antialiased max-w-1/4">{{ user.name }}</h3>
         <span class="text-gray-400 font-semibold text-2xl sm:w-1/2 w-full">{{ user.bioInfo }}</span>
@@ -82,31 +83,40 @@
 
     <div class="flex flex-col flex-wrap justify-center items-center my-3 h-3/4" id="About">
       <h3 :class="{ 'text-white': Dark, 'text-black': !Dark}" class="font-semibold transition duration-500 ease-in-out mt-2 text-2xl">About me</h3>
-      <div class="justify text-center mx-auto w-1/2 text-gray-400 font-semibold">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis iure atque nam magni non, aliquam dignissimos eius fuga sunt, ex eligendi nostrum repellat totam vero ratione qui accusantium est! Nemo!</p>
-      </div>
-    </div>
-
-    <div :class="{ 'bg-gray-600 text-white': Dark, 'bg-gray-100': !Dark}" class="flex flex-col flex-wrap justify-center items-center transition duration-500 ease-in-out my-2" id="Work">
-      <h3 class="font-semibold mt-2 text-2xl text-white text-purple-500">Work</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2 mx-1 my-3">
-        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" :key="index" v-for="(item,index) in this.user.repos">
-          <h4 class="text-white font-semibold">{{ item.name }}</h4>
-          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-white hover:bg-gray-100 active:bg-gray-200': !Dark}" class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-md" :href="item.html_url" target="_blank" rel="noopener noreferrer">Github
-            <i class='bx bxl-github fill-current transition duration-500 ease-in-out' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
+      <div class="flex flex-col sm:flex-row justify-between items-center mx-5 w-10/12 text-gray-400 font-semibold">
+        <p class="text-justify mx-1 w-9/12">Soy un desarrollador web Junior con experiencia practica desarrollando pequeños proyectos o practicas en las diferentes tecnologias 
+          ya mencionadas, y si bien me desempeño bastante bien en el desarrollado Back-End (comunicación con la base de datos), tambien poseo buenos 
+          conocimientos para desarrollar un Front-End de calidad y a la altura de las exigencias. 
+        </p>
+        <div class="flex flex-row justify-between items-center w-9/12 mt-2 sm:mx-2 sm:mt-0 sm:w-3/12 space-x-1">
+          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" :href="user.giturl" target="_blank" rel="noopener noreferrer">Github
+            <i class='bx bxl-github fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
+          </a>
+          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" href="mailto:jesusitomorales70@gmail.com" target="_blank" rel="noopener noreferrer">Gmail
+            <i class='bx bx-mail-send fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-col flex-wrap justify-center items-center my-2" id="contact">
-      <h3 :class="{ 'text-white': Dark}" class="font-semibold transition duration-500 ease-in-out text-2xl">Contact me</h3>      
+    <div :class="{ 'bg-gray-600 text-white': Dark, 'bg-gray-100': !Dark}" class="flex flex-col flex-wrap justify-center items-center transition duration-500 ease-in-out my-2" id="Projects">
+      <h3 class="font-semibold mt-2 text-2xl text-white text-purple-500">Projects</h3>
+      <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2': user.repos.message == undefined, 'text-center': user.repos.message != undefined}" class="mx-1 my-3">
+        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos">
+          <h4 class="text-white font-semibold">{{ item.name }}</h4>
+          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-white hover:bg-gray-100 active:bg-gray-200': !Dark}" class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-md" :href="item.html_url" target="_blank" rel="noopener noreferrer">Github
+            <i class='bx bxl-github fill-current transition duration-500 ease-in-out' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
+          </a>
+        </div>
+        <h3 class="font-semibold mx-3" v-else >{{ user.repos.message }} <a class="text-indigo-400 hover:text-indigo-500 underline" target="__blank" :href="user.repos.documentation_url">Click Here</a></h3>
+      </div>
     </div>
 
-    <div :class="{ 'bg-gray-600': Dark, 'bg-gray-100': !Dark}" class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2">
+    <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2">
       <h3 class="font-semibold mt-2 text-2xl text-purple-500">Footer</h3>
     </div>
   </div>
-  <script src="./public/js/index.js"></script>
 </body>
 </html>
