@@ -1,6 +1,7 @@
 const store = {
   data(){
     return{
+      year: null,
       navBar: false,
       Dark: false,
       user:{
@@ -65,6 +66,8 @@ const store = {
       document.querySelector('html').classList.add('dark')
       this.Dark = true;
     }
+
+    this.year = new Date().getFullYear();
 
     await this.GetDatosUserFromGit()
     await this.GetDatosRepo()    
