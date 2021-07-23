@@ -51,7 +51,7 @@
     </div>
       <!-- <box-icon type='logo' name='nodejs' size="lg" color="green"></box-icon> -->
     <div :class="{'bg-gray-600': Dark}" class="flex flex-col flex-wrap justify-center transition duration-500 ease-in-out text-center bg-gray-100 p-2 mt-5">
-      <h3 class="text-center font-semibold my-2 text-3xl text-purple-500">Tecnologies</h3>
+      <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="text-center font-semibold my-2 text-3xl">Tecnologies</h3>
       <div class="flex flex-col sm:flex-row justify-evenly items-center space-y-9 mb-2">
         <div class="flex flex-col justify-center items-center mt-10">
           <h3 :class="{'text-white': Dark, 'text-gray-500': !Dark}" class="font-semibold transition duration-500 ease-in-out text-3xl">Front-End</h3>
@@ -89,12 +89,12 @@
           conocimientos para desarrollar un Front-End de calidad y a la altura de las exigencias. 
         </p>
         <div class="flex flex-row justify-between items-center w-9/12 mt-2 sm:mx-2 sm:mt-0 sm:w-3/12 space-x-1">
-          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          <a title="My github's profile" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
           class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" :href="user.giturl" target="_blank" rel="noopener noreferrer">Github
             <i class='bx bxl-github fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
-          <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
-          class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" href="mailto:jesusitomorales70@gmail.com" target="_blank" rel="noopener noreferrer">Gmail
+          <a title="My Email" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" href="mailto:21moralesjesus@gmail.com" target="_blank" rel="noopener noreferrer">Gmail
             <i class='bx bx-mail-send fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
         </div>
@@ -102,7 +102,7 @@
     </div>
 
     <div :class="{ 'bg-gray-600 text-white': Dark, 'bg-gray-100': !Dark}" class="flex flex-col flex-wrap justify-center items-center transition duration-500 ease-in-out my-2" id="Projects">
-      <h3 class="font-semibold mt-2 text-2xl text-white text-purple-500">Projects</h3>
+      <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="font-semibold mt-2 text-2xl">Projects</h3>
       <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2': user.repos.message == undefined, 'text-center': user.repos.message != undefined}" class="mx-1 my-3">
         <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos">
           <h4 class="text-white font-semibold">{{ item.name }}</h4>
@@ -113,9 +113,9 @@
         <h3 class="font-semibold mx-3" v-else >{{ user.repos.message }} <a class="text-indigo-400 hover:text-indigo-500 underline" target="__blank" :href="user.repos.documentation_url">Click Here</a></h3>
       </div>
     </div>
-
+    
     <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2">
-      <h3 class="font-semibold mt-2 text-2xl text-purple-500">Footer</h3>
+      <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; Copyright {{ year }} / Creado por {{ user.name }} / Todos lo derechos reservados </span> 
     </div>
   </div>
 </body>
