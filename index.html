@@ -33,8 +33,7 @@
       <div id="navbar" class="hidden transform sm:flex flex-row flex-wrap sm:justify-between justify-around items-center w-full sm:w-auto text-bold">
         <a href="#About" class=" px-2 py-2">About me</a>
         <a href="#Projects" class=" px-2 py-2">Projects</a>
-        <a href="#" class=" px-2 py-2">Contact</a>
-                
+               
         <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" 
         class="flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1 w-auto" @click="DarkMode();">
           <i v-if="Dark == false" class='bx bx-sun bx-sm fill-current text-purple-400' ></i>
@@ -123,7 +122,7 @@
     </div>
     
     <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2 text-center">
-      <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; Copyright {{ year }} / Creado por {{ user.name }} / Todos lo derechos reservados </span> 
+      <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; {{ year }} / Creado por {{ user.name }}</span> 
     </div>
   </div>
 </body>
