@@ -35,7 +35,6 @@ const store = {
         this.user.countPublicRepos = res.public_repos;
         this.user.urlPublicRepos = res.repos_url
       }).catch( Err => console.error(Err))
-      console.log(this.user)
     },
     async GetDatosRepo(){
       await fetch(`${this.urlGit}/repos`).then( response => response.json()).then( res => this.user.repos = res).catch( Err => console.error(Err))
@@ -46,14 +45,14 @@ const store = {
         this.Dark = false;
         htmlClasses.remove('dark');
         localStorage.removeItem('theme')
-      } else {
-        this.Dark = true;
-        htmlClasses.add('dark');
-        localStorage.theme = 'dark';
+        return false;
       }
+      this.Dark = true;
+      htmlClasses.add('dark');
+      localStorage.theme = 'dark';
     },
     displayNavbar(){
-      let nav = document.getElementById("navbar");
+      let nav = document.getElementById("navbar")
       nav.classList.toggle("hidden")
       nav.classList.toggle("flex")
     }

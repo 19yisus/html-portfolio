@@ -17,35 +17,43 @@
 <body id="app">
   <div :class="{'bg-gray-800': Dark}" class="flex flex-col flex-shrink transition duration-500 ease-in-out sm:w-full sm:h-full relative">
 
-    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}" class="container transition duration-500 ease-in-out fixed top-2 inset-x-4 sm:inset-x-14 flex flex-row w-11/12 justify-between items-baseline rounded-md px-1 p-1 shadow-md" >
+    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}" 
+    class="container transition-all duration-500 ease-in-out fixed top-2 inset-x-4 sm:inset-x-14 sm:mx-2 flex flex-row flex-wrap w-11/12 justify-between items-center rounded-md px-1 p-1 shadow-md" >
       
       <a href="#Home"class="flex flex-row items-center">
         <i class='bx bx-laptop bx-sm fill-current text-purple-400'></i>
         <h3 class="font-semibold capitalize text-purple-400">Dev. {{ user.name }}</h3>
       </a>
-            
-      <div class="flex flex-col sm:flex-row items-center space-x-1 px-3 mr-2 transition duration-500 ease-in-out">
-        <div class="flex flex-row space-x-1 transition duration-500 ease-in-out">
-          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="DarkMode();">
-            <i v-if="Dark == false" class='bx bx-sun bx-sm fill-current text-purple-400' ></i>
-            <i v-else class='bx bx-moon bx-sm fill-current text-purple-400' ></i>
-          </button>
-          <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" class="sm:hidden flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="displayNavbar()">
-            <i class='bx bx-list-ul bx-sm fill-current text-purple-400'></i>
-          </button>
+
+      <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" 
+      class="sm:hidden flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="displayNavbar()">
+        <i class='bx bx-list-ul bx-sm fill-current text-purple-400'></i>
+      </button>
+      
+      <div id="navbar" class="hidden transform sm:flex flex-row flex-wrap sm:justify-between justify-around items-center w-full sm:w-auto text-bold">
+        <a href="#About" class=" px-2 py-2">About me</a>
+        <a href="#Projects" class=" px-2 py-2">Projects</a>
+        <a href="#" class=" px-2 py-2">Contact</a>
+                
+        <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" 
+        class="flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1 w-auto" @click="DarkMode();">
+          <i v-if="Dark == false" class='bx bx-sun bx-sm fill-current text-purple-400' ></i>
+          <i v-else class='bx bx-moon bx-sm fill-current text-purple-400' ></i>
+        </button>
+
+        <div class="flex sm:hidden flex-row justify-around items-center w-full text-bold">
+          <h4 class="font-bold" :class="{ 'text-white': Dark, 'text-black': !Dark}">
+            <i class='bx bx-mail-send fill-current transition duration-500 ease-in-out text-xlg'></i>
+            Mail Contact: 
+            <span class="font-semibold">21moralesjesus@gmail.com</span></h4>
         </div>
-        
-        <nav class="hidden sm:flex sm:flex-row flex-col justify-center justify-items-start sm:justify-around space-x-2 rounded-lg font-semibold items-center sm:m-1 sm:p-1" id="navbar">
-          <a href="#About" class="hover:text-purple-400">About me</a>
-          <a href="#Projects" class="hover:text-purple-400">Projects</a>
-          <a href="#" class="hover:text-purple-400">Contact</a>
-        </nav>
       </div>
+
     </div>
-    <div class="container flex flex-col sm:flex-row justify-center sm:justify-between items-center w-full sm:h-96 mt-14 sm:mt-0 sm:my-3 mx-auto" id="Home">
+    <div class="container flex flex-col sm:flex-row justify-center sm:justify-between items-center w-full sm:h-96 mt-14 sm:mt-16 sm:my-3 mx-auto" id="Home">
       <div class="flex flex-col flex-shrink flex-wrap justify-center text-center sm:text-left mx-2">
         <h3 class="text-7xl font-bold text-purple-400 subpixel-antialiased max-w-1/4">{{ user.name }}</h3>
-        <span class="text-gray-400 font-semibold text-2xl sm:w-1/2 w-full">{{ user.bioInfo }}</span>
+        <span class="text-gray-400 font-semibold text-2xl sm:w-3/4 w-full">{{ user.bioInfo }}</span>
       </div>
       <img :src="user.avatar" alt="" class="my-8 sm:my-0 h-60 rounded-full ring-8 object-contain ring-indigo-400">
     </div>
@@ -114,7 +122,7 @@
       </div>
     </div>
     
-    <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2">
+    <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2 text-center">
       <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; Copyright {{ year }} / Creado por {{ user.name }} / Todos lo derechos reservados </span> 
     </div>
   </div>
