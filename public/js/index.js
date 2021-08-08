@@ -67,7 +67,6 @@ const store = {
     }
 
     this.year = new Date().getFullYear();
-
     await this.GetDatosUserFromGit()
     await this.GetDatosRepo()    
   }
