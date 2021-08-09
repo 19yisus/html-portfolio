@@ -12,6 +12,11 @@
   <script src="./public/js/index.js" defer></script>
   <!-- Favicon -->
   <link rel="shortcut icon" href="./public/svg/php-brands.svg" type="image/x-icon">  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
   <title>Portfolio</title>
 </head>
 <body id="app">
@@ -114,8 +119,8 @@
 
     <div :class="{ 'bg-gray-600 text-white': Dark, 'bg-gray-100': !Dark}" class="flex flex-col flex-wrap justify-center items-center transition duration-500 ease-in-out my-2" id="Projects">
       <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="font-semibold mt-2 text-2xl">Projects</h3>
-      <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2': user.repos.message == undefined, 'text-center': user.repos.message != undefined}" class="mx-1 my-3">
-        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos">
+      <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4': user.repos.message == undefined, 'text-center': user.repos.message != undefined}" class="mx-1 my-3 p-5">
+        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-3 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos">
           <h4 class="text-white font-semibold">{{ item.name }}</h4>
           <small class="text-white font-semibold text-justify p-2">{{ item.description }}</small>
           <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-white hover:bg-gray-100 active:bg-gray-200': !Dark}" class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-md" :href="item.html_url" target="_blank" rel="noopener noreferrer">Github
