@@ -7,34 +7,36 @@
   <!-- STYLES CSS -->
   <link rel="stylesheet" href="./public/css/estilos.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css" rel="stylesheet">
   <!-- REQUIRES SCRIPTS -->
   <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4"></script>
   <script src="./public/js/index.js" defer></script>
   <!-- Favicon -->
-  <link rel="shortcut icon" href="./public/svg/php-brands.svg" type="image/x-icon">  
+  <link rel="shortcut icon" href="./public/svg/php-brands.svg" type="image/x-icon">
   <title>Portfolio</title>
 </head>
 <body id="app">
   <div :class="{'bg-gray-800': Dark}" class="flex flex-col flex-shrink transition duration-500 ease-in-out sm:w-full sm:h-full relative">
 
-    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}" 
+    <div :class="{ 'bg-gray-700 text-white': Dark, 'bg-gray-100': !Dark}"
     class="container transition-all duration-500 ease-in-out fixed top-2 inset-x-4 sm:inset-x-14 sm:mx-2 flex flex-row flex-wrap w-11/12 justify-between items-center rounded-md px-1 p-1 shadow-md" >
-      
+
       <a href="#Home"class="flex flex-row items-center">
         <i class='bx bx-laptop bx-sm fill-current text-purple-400'></i>
         <h3 class="font-semibold capitalize text-purple-400">Dev. {{ user.name }}</h3>
       </a>
 
-      <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" 
+      <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}"
       class="sm:hidden flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1" @click="displayNavbar()">
         <i class='bx bx-list-ul bx-sm fill-current text-purple-400'></i>
       </button>
-      
+
       <div id="navbar" class="hidden transform sm:flex flex-row flex-wrap sm:justify-between justify-around items-center w-full sm:w-auto text-bold">
         <a href="#About" class=" px-2 py-2">About me</a>
         <a href="#Projects" class=" px-2 py-2">Projects</a>
-               
-        <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}" 
+
+        <button :class="{ 'bg-gray-600 hover:bg-gray-700': Dark, 'bg-gray-200 hover:bg-gray-300': !Dark}"
         class="flex flex-row active:outline-none justify-center transition duration-500 ease-in-out rounded-md p-1 w-auto" @click="DarkMode();">
           <i v-if="Dark == false" class='bx bx-sun bx-sm fill-current text-purple-400' ></i>
           <i v-else class='bx bx-moon bx-sm fill-current text-purple-400' ></i>
@@ -43,7 +45,7 @@
         <div class="flex sm:hidden flex-row justify-around items-center w-full text-bold">
           <h4 class="font-bold" :class="{ 'text-white': Dark, 'text-black': !Dark}">
             <i class='bx bx-mail-send fill-current transition duration-500 ease-in-out text-xlg'></i>
-            Mail Contact: 
+            Mail Contact:
             <span class="font-semibold">21moralesjesus@gmail.com</span></h4>
         </div>
       </div>
@@ -56,17 +58,17 @@
       </div>
       <img :src="user.avatar" alt="" class="my-8 sm:my-0 h-60 rounded-full ring-8 object-contain ring-indigo-400">
     </div>
-      <!-- <box-icon type='logo' name='nodejs' size="lg" color="green"></box-icon> -->
+
     <div :class="{'bg-gray-600': Dark}" class="flex flex-col flex-wrap justify-center transition duration-500 ease-in-out text-center bg-gray-100 p-2 mt-5">
       <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="text-center font-semibold my-2 text-3xl">Tecnologies</h3>
       <div class="flex flex-col sm:flex-row justify-evenly items-center space-y-9 mb-2">
         <div class="flex flex-col justify-center items-center mt-10">
           <h3 :class="{'text-white': Dark, 'text-gray-500': !Dark}" class="font-semibold transition duration-500 ease-in-out text-3xl">Front-End</h3>
           <div class="flex flex-row justify-between items-center mt-2">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path d="M0 0h256v256H0V0z" fill="#F7DF1E"/><path d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996" fill="#000"/><path d="M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247L210.29 147.43c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574" fill="#000"/></svg>
-            <i class='bx bxl-html5 text-5xl fill-current text-yellow-500' ></i>
-            <i class='bx bxl-less text-5xl fill-current transition duration-500 ease-in-out' :class="{'text-white': Dark, 'text-gray-500': !Dark}"></i>
-            <i class='bx bxl-css3 text-5xl fill-current text-blue-400'></i>
+            <i class='bx bxl-javascript text-5xl fill-current text-yellow-400' title="Javascript"></i>
+            <i class='bx bxl-html5 text-5xl fill-current text-yellow-500'title="HTML5" ></i>
+            <i class='bx bxl-css3 text-5xl fill-current text-blue-400' title="Css3"></i>
+            <i class='bx bxl-react text-5xl fill-current text-blue-500' title="React js"></i>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="Vuejs" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 221"><path d="M204.8 0H256L128 220.8L0 0h97.92L128 51.2L157.44 0h47.36z" fill="#41B883"/><path d="M0 0l128 220.8L256 0h-51.2L128 132.48L50.56 0H0z" fill="#41B883"/><path d="M50.56 0L128 133.12L204.8 0h-47.36L128 51.2L97.92 0H50.56z" fill="#35495E"/></svg>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="Tailwindcss" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 154"><defs><linearGradient x1="-2.778%" y1="32%" x2="100%" y2="67.556%" id="IconifyId-17aa18d7512-290953-86"><stop stop-color="#2298BD" offset="0%"/><stop stop-color="#0ED7B5" offset="100%"/></linearGradient></defs><path d="M128 0C93.867 0 72.533 17.067 64 51.2C76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2c-12.8 17.067-27.733 23.467-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2c-12.8 17.067-27.733 23.467-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z" fill="url(#IconifyId-17aa18d7512-290953-86)"/></svg>
           </div>
@@ -76,35 +78,38 @@
           <div class="flex flex-row justify-between items-center my-2 space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="PHP" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 135"><defs><radialGradient id="IconifyId-17aa18db8f7-a7e425-93" cx=".837" cy="-125.811" r="363.057" gradientTransform="matrix(.463 0 0 .463 76.464 81.918)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#4c6b97"/><stop offset="1" stop-color="#231f20"/></radialGradient></defs><ellipse fill="url(#IconifyId-17aa18db8f7-a7e425-93)" cx="128" cy="67.3" rx="128" ry="67.3"/><ellipse fill="#6181B6" cx="128" cy="67.3" rx="123" ry="62.3"/><g fill="#FFF"><path d="M152.9 87.5l6.1-31.4c1.4-7.1.2-12.4-3.4-15.7c-3.5-3.2-9.5-4.8-18.3-4.8h-10.6l3-15.6c.1-.6 0-1.2-.4-1.7s-.9-.7-1.5-.7h-14.6c-1 0-1.8.7-2 1.6l-6.5 33.3c-.6-3.8-2-7-4.4-9.6c-4.3-4.9-11-7.4-20.1-7.4H52.1c-1 0-1.8.7-2 1.6L37 104.7c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.7c1 0 1.8-.7 2-1.6l3.2-16.3h10.9c5.7 0 10.6-.6 14.3-1.8c3.9-1.3 7.4-3.4 10.5-6.3c2.5-2.3 4.6-4.9 6.2-7.7l-2.6 13.5c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.6c1 0 1.8-.7 2-1.6l7.2-37h10c4.3 0 5.5.8 5.9 1.2c.3.3.9 1.5.2 5.2L134.1 87c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h15c.9-.3 1.7-1 1.9-1.9zm-67.6-26c-.9 4.7-2.6 8.1-5.1 10c-2.5 1.9-6.6 2.9-12 2.9h-6.5l4.7-24.2h8.4c6.2 0 8.7 1.3 9.7 2.4c1.3 1.6 1.6 4.7.8 8.9z"/><path d="M215.3 42.9c-4.3-4.9-11-7.4-20.1-7.4h-28.3c-1 0-1.8.7-2 1.6l-13.1 67.5c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.7c1 0 1.8-.7 2-1.6l3.2-16.3h10.9c5.7 0 10.6-.6 14.3-1.8c3.9-1.3 7.4-3.4 10.5-6.3c2.6-2.4 4.8-5.1 6.4-8c1.6-2.9 2.8-6.1 3.5-9.6c1.7-8.7.4-15.5-3.9-20.5zM200 61.5c-.9 4.7-2.6 8.1-5.1 10c-2.5 1.9-6.6 2.9-12 2.9h-6.5l4.7-24.2h8.4c6.2 0 8.7 1.3 9.7 2.4c1.4 1.6 1.7 4.7.8 8.9z"/></g><g fill="#000004"><path d="M74.8 48.2c5.6 0 9.3 1 11.2 3.1c1.9 2.1 2.3 5.6 1.3 10.6c-1 5.2-3 9-5.9 11.2c-2.9 2.2-7.3 3.3-13.2 3.3h-8.9l5.5-28.2h10zM39 105h14.7l3.5-17.9h12.6c5.6 0 10.1-.6 13.7-1.8c3.6-1.2 6.8-3.1 9.8-5.9c2.5-2.3 4.5-4.8 6-7.5s2.6-5.7 3.2-9c1.6-8 .4-14.2-3.5-18.7s-10.1-6.7-18.6-6.7H52.1L39 105z"/><path d="M113.3 19.6h14.6l-3.5 17.9h13c8.2 0 13.8 1.4 16.9 4.3c3.1 2.9 4 7.5 2.8 13.9L151 87.1h-14.8l5.8-29.9c.7-3.4.4-5.7-.7-6.9c-1.1-1.2-3.6-1.9-7.3-1.9h-11.7l-7.5 38.7h-14.6l13.1-67.5z"/><path d="M189.5 48.2c5.6 0 9.3 1 11.2 3.1c1.9 2.1 2.3 5.6 1.3 10.6c-1 5.2-3 9-5.9 11.2c-2.9 2.2-7.3 3.3-13.2 3.3H174l5.5-28.2h10zM153.7 105h14.7l3.5-17.9h12.6c5.6 0 10.1-.6 13.7-1.8c3.6-1.2 6.8-3.1 9.8-5.9c2.5-2.3 4.5-4.8 6-7.5s2.6-5.7 3.2-9c1.6-8 .4-14.2-3.5-18.7s-10.1-6.7-18.6-6.7h-28.3L153.7 105z"/></g></svg>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="Laravel" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 264"><path d="M255.856 59.62c.095.351.144.713.144 1.077v56.568c0 1.478-.79 2.843-2.073 3.578L206.45 148.18v54.18a4.135 4.135 0 0 1-2.062 3.579l-99.108 57.053c-.227.128-.474.21-.722.299c-.093.03-.18.087-.278.113a4.15 4.15 0 0 1-2.114 0c-.114-.03-.217-.093-.325-.134c-.227-.083-.464-.155-.68-.278L2.073 205.938A4.128 4.128 0 0 1 0 202.36V32.656c0-.372.052-.733.144-1.083c.031-.119.103-.227.145-.346c.077-.216.15-.438.263-.639c.077-.134.19-.242.283-.366c.119-.165.227-.335.366-.48c.119-.118.274-.206.408-.309c.15-.124.283-.258.453-.356h.005L51.613.551a4.135 4.135 0 0 1 4.125 0l49.546 28.526h.01c.165.104.305.232.454.351c.134.103.284.196.402.31c.145.149.248.32.371.484c.088.124.207.232.279.366c.118.206.185.423.268.64c.041.118.113.226.144.35c.095.351.144.714.145 1.078V138.65l41.286-23.773V60.692c0-.36.052-.727.145-1.072c.036-.124.103-.232.144-.35c.083-.217.155-.44.268-.64c.077-.134.19-.242.279-.366c.123-.165.226-.335.37-.48c.12-.118.269-.206.403-.309c.155-.124.289-.258.454-.356h.005l49.551-28.526a4.13 4.13 0 0 1 4.125 0l49.546 28.526c.175.103.309.232.464.35c.128.104.278.197.397.31c.144.15.247.32.37.485c.094.124.207.232.28.366c.118.2.185.423.267.64c.047.118.114.226.145.35zm-8.115 55.258v-47.04l-17.339 9.981l-23.953 13.792v47.04l41.297-23.773h-.005zm-49.546 85.095V152.9l-23.562 13.457l-67.281 38.4v47.514l90.843-52.3zM8.259 39.796v160.177l90.833 52.294v-47.505L51.64 177.906l-.015-.01l-.02-.01c-.16-.093-.295-.227-.444-.34c-.13-.104-.279-.186-.392-.3l-.01-.015c-.134-.129-.227-.289-.34-.433c-.104-.14-.227-.258-.31-.402l-.005-.016c-.093-.154-.15-.34-.217-.515c-.067-.155-.154-.3-.196-.464v-.005c-.051-.196-.061-.403-.082-.604c-.02-.154-.062-.309-.062-.464V63.57L25.598 49.772l-17.339-9.97v-.006zM53.681 8.893L12.399 32.656l41.272 23.762L94.947 32.65L53.671 8.893h.01zm21.468 148.298l23.948-13.786V39.796L81.76 49.778L57.805 63.569v103.608l17.344-9.986zM202.324 36.935l-41.276 23.762l41.276 23.763l41.271-23.768l-41.27-23.757zm-4.13 54.676l-23.953-13.792l-17.338-9.981v47.04l23.948 13.787l17.344 9.986v-47.04zm-94.977 106.006l60.543-34.564l30.264-17.272l-41.246-23.747l-47.489 27.34l-43.282 24.918l41.21 23.325z" fill="#FF2D20"/></svg>
-          </div>       
-        </div>  
+            <i class='bx bxl-nodejs text-5xl fill-current text-green-400'></i>
+          </div>
+        </div>
         <div class="flex flex-col justify-center items-center">
           <h3 :class="{'text-white': Dark, 'text-gray-500': !Dark}" class="font-semibold transition duration-500 ease-in-out text-3xl">Others</h3>
           <div class="flex flex-row justify-between items-center my-2">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 351"><defs><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="IconifyId-17aa190c9b4-69cc1c-103"><feGaussianBlur stdDeviation="17.5" in="SourceAlpha" result="shadowBlurInner1"/><feOffset in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" in="shadowInnerInner1"/></filter><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="IconifyId-17aa190c9b4-69cc1c-104"><feGaussianBlur stdDeviation="3.5" in="SourceAlpha" result="shadowBlurInner1"/><feOffset dx="1" dy="-9" in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0" in="shadowInnerInner1"/></filter><path d="M1.253 280.732l1.605-3.131l99.353-188.518l-44.15-83.475C54.392-1.283 45.074.474 43.87 8.188L1.253 280.732z" id="IconifyId-17aa190c9b4-69cc1c-105"/><path d="M134.417 148.974l32.039-32.812l-32.039-61.007c-3.042-5.791-10.433-6.398-13.443-.59l-17.705 34.109l-.53 1.744l31.678 58.556z" id="IconifyId-17aa190c9b4-69cc1c-106"/></defs><path d="M0 282.998l2.123-2.972L102.527 89.512l.212-2.017L58.48 4.358C54.77-2.606 44.33-.845 43.114 6.951L0 282.998z" fill="#FFC24A"/><use fill="#FFA712" fill-rule="evenodd" xlink:href="#IconifyId-17aa190c9b4-69cc1c-105"/><use filter="url(#IconifyId-17aa190c9b4-69cc1c-103)" xlink:href="#IconifyId-17aa190c9b4-69cc1c-105"/><path d="M135.005 150.38l32.955-33.75l-32.965-62.93c-3.129-5.957-11.866-5.975-14.962 0L102.42 87.287v2.86l32.584 60.233z" fill="#F4BD62"/><use fill="#FFA50E" fill-rule="evenodd" xlink:href="#IconifyId-17aa190c9b4-69cc1c-106"/><use filter="url(#IconifyId-17aa190c9b4-69cc1c-104)" xlink:href="#IconifyId-17aa190c9b4-69cc1c-106"/><path fill="#F6820C" d="M0 282.998l.962-.968l3.496-1.42l128.477-128l1.628-4.431l-32.05-61.074z"/><path d="M139.121 347.551l116.275-64.847l-33.204-204.495c-1.039-6.398-8.888-8.927-13.468-4.34L0 282.998l115.608 64.548a24.126 24.126 0 0 0 23.513.005" fill="#FDE068"/><path d="M254.354 282.16L221.402 79.218c-1.03-6.35-7.558-8.977-12.103-4.424L1.29 282.6l114.339 63.908a23.943 23.943 0 0 0 23.334.006l115.392-64.355z" fill="#FCCA3F"/><path d="M139.12 345.64a24.126 24.126 0 0 1-23.512-.005L.931 282.015l-.93.983l115.607 64.548a24.126 24.126 0 0 0 23.513.005l116.275-64.847l-.285-1.752l-115.99 64.689z" fill="#EEAB37"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path d="M251.172 116.594L139.4 4.828c-6.433-6.437-16.873-6.437-23.314 0l-23.21 23.21l29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693c5.48 5.489 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657c7.663 7.66 7.663 20.075 0 27.74c-7.665 7.666-20.08 7.666-27.749 0c-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462l-.003 69.637a19.82 19.82 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747c-7.665 7.662-20.086 7.662-27.74 0c-7.663-7.671-7.663-20.086 0-27.746a19.654 19.654 0 0 1 6.421-4.281V94.196a19.378 19.378 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442l-76.64 76.635c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324" fill="#DE4C36"/></svg>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="Firebase" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 351"><defs><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="IconifyId-17aa190c9b4-69cc1c-103"><feGaussianBlur stdDeviation="17.5" in="SourceAlpha" result="shadowBlurInner1"/><feOffset in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" in="shadowInnerInner1"/></filter><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="IconifyId-17aa190c9b4-69cc1c-104"><feGaussianBlur stdDeviation="3.5" in="SourceAlpha" result="shadowBlurInner1"/><feOffset dx="1" dy="-9" in="shadowBlurInner1" result="shadowOffsetInner1"/><feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0" in="shadowInnerInner1"/></filter><path d="M1.253 280.732l1.605-3.131l99.353-188.518l-44.15-83.475C54.392-1.283 45.074.474 43.87 8.188L1.253 280.732z" id="IconifyId-17aa190c9b4-69cc1c-105"/><path d="M134.417 148.974l32.039-32.812l-32.039-61.007c-3.042-5.791-10.433-6.398-13.443-.59l-17.705 34.109l-.53 1.744l31.678 58.556z" id="IconifyId-17aa190c9b4-69cc1c-106"/></defs><path d="M0 282.998l2.123-2.972L102.527 89.512l.212-2.017L58.48 4.358C54.77-2.606 44.33-.845 43.114 6.951L0 282.998z" fill="#FFC24A"/><use fill="#FFA712" fill-rule="evenodd" xlink:href="#IconifyId-17aa190c9b4-69cc1c-105"/><use filter="url(#IconifyId-17aa190c9b4-69cc1c-103)" xlink:href="#IconifyId-17aa190c9b4-69cc1c-105"/><path d="M135.005 150.38l32.955-33.75l-32.965-62.93c-3.129-5.957-11.866-5.975-14.962 0L102.42 87.287v2.86l32.584 60.233z" fill="#F4BD62"/><use fill="#FFA50E" fill-rule="evenodd" xlink:href="#IconifyId-17aa190c9b4-69cc1c-106"/><use filter="url(#IconifyId-17aa190c9b4-69cc1c-104)" xlink:href="#IconifyId-17aa190c9b4-69cc1c-106"/><path fill="#F6820C" d="M0 282.998l.962-.968l3.496-1.42l128.477-128l1.628-4.431l-32.05-61.074z"/><path d="M139.121 347.551l116.275-64.847l-33.204-204.495c-1.039-6.398-8.888-8.927-13.468-4.34L0 282.998l115.608 64.548a24.126 24.126 0 0 0 23.513.005" fill="#FDE068"/><path d="M254.354 282.16L221.402 79.218c-1.03-6.35-7.558-8.977-12.103-4.424L1.29 282.6l114.339 63.908a23.943 23.943 0 0 0 23.334.006l115.392-64.355z" fill="#FCCA3F"/><path d="M139.12 345.64a24.126 24.126 0 0 1-23.512-.005L.931 282.015l-.93.983l115.607 64.548a24.126 24.126 0 0 0 23.513.005l116.275-64.847l-.285-1.752l-115.99 64.689z" fill="#EEAB37"/></svg> -->
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" title="Git" focusable="false" class="h-9" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path d="M251.172 116.594L139.4 4.828c-6.433-6.437-16.873-6.437-23.314 0l-23.21 23.21l29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693c5.48 5.489 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657c7.663 7.66 7.663 20.075 0 27.74c-7.665 7.666-20.08 7.666-27.749 0c-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462l-.003 69.637a19.82 19.82 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747c-7.665 7.662-20.086 7.662-27.74 0c-7.663-7.671-7.663-20.086 0-27.746a19.654 19.654 0 0 1 6.421-4.281V94.196a19.378 19.378 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442l-76.64 76.635c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324" fill="#DE4C36"/></svg>
+            <img src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg" alt="Mysql" class="h-16" title="Mysql">
+            <img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" alt="postgresql" class="h-17" title="Postgresql">
           </div>
-        </div>      
+        </div>
       </div>
     </div>
 
     <div class="flex flex-col flex-wrap justify-center items-center my-3 h-3/4" id="About">
       <h3 :class="{ 'text-white': Dark, 'text-black': !Dark}" class="font-semibold transition duration-500 ease-in-out mt-2 text-2xl">About me</h3>
       <div class="flex flex-col sm:flex-row justify-between items-center mx-5 w-10/12 text-gray-400 font-semibold">
-        <p class="text-justify mx-1 w-9/12">Soy un desarrollador web Junior con experiencia practica desarrollando pequeños proyectos o practicas en las diferentes tecnologias 
-          ya mencionadas, y si bien me desempeño bastante bien en el desarrollado Back-End (comunicación con la base de datos), tambien poseo buenos 
-          conocimientos para desarrollar un Front-End de calidad y a la altura de las exigencias. 
+        <p class="text-justify mx-1 w-9/12">Soy un desarrollador web Junior con experiencia practica desarrollando pequeños proyectos o practicas en las diferentes tecnologias
+          ya mencionadas, y si bien me desempeño bastante bien en el desarrollado Back-End (comunicación con la base de datos), tambien poseo buenos
+          conocimientos para desarrollar un Front-End de calidad y a la altura de las exigencias.
         </p>
         <div class="flex flex-col sm:flex-row flex-wrap justify-between items-center w-9/12 mt-2 sm:mx-2 sm:mt-0 sm:w-4/12 space-y-1 sm:space-x-1">
-          <a title="My github's profile" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          <a title="My github's profile" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}"
           class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" :href="user.giturl" target="_blank" rel="noopener noreferrer">Github
             <i class='bx bxl-github fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
-          <a title="My Email" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          <a title="My Email" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}"
           class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" href="mailto:21moralesjesus@gmail.com" target="_blank" rel="noopener noreferrer">Gmail
             <i class='bx bx-mail-send fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
-          <a title="My Codepen" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}" 
+          <a title="My Codepen" :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-black': !Dark}"
           class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-full" href="https://codepen.io/19Yisus" target="_blank" rel="noopener noreferrer">Codepen.io
             <i class='bx bxl-codepen fill-current transition duration-500 ease-in-out text-4xl' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
@@ -113,20 +118,26 @@
     </div>
 
     <div :class="{ 'bg-gray-600 text-white': Dark, 'bg-gray-100': !Dark}" class="flex flex-col flex-wrap justify-center items-center transition duration-500 ease-in-out my-2" id="Projects">
-      <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="font-semibold mt-2 text-2xl">Projects</h3>
-      <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2': user.repos.message == undefined, 'text-center': user.repos.message != undefined}" class="mx-1 my-3">
-        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos">
+      <h3 :class="{'text-black': !Dark, 'text-white': Dark }" class="font-semibold mt-2 text-2xl" title="">Projects</h3>
+      <div :class="{'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 space-x-2': user.repos.message === undefined, 'text-center': user.repos.message !== undefined}" class="mx-1 my-3">
+        <div class="flex flex-col flex-wrap items-center justify-between bg-indigo-400 p-2 m-1 rounded-md shadow-md" v-if="user.repos.message == undefined" :key="index" v-for="(item,index) in user.repos" v-show="(CurrentPage - 1) * NumResults <= index && CurrentPage * NumResults > index">
           <h4 class="text-white font-semibold">{{ item.name }}</h4>
+          <small class="text-white my-1">{{ item.description }}</small>
           <a :class="{ 'bg-gray-500 hover:bg-gray-600 active:bg-gray-700 text-white': Dark, 'bg-white hover:bg-gray-100 active:bg-gray-200': !Dark}" class="flex flex-row items-center transition duration-500 ease-in-out transition duration-500 ease-in-out p-2 rounded-md" :href="item.html_url" target="_blank" rel="noopener noreferrer">Github
             <i class='bx bxl-github fill-current transition duration-500 ease-in-out' :class="{ 'text-white': Dark, 'text-black': !Dark}"></i>
           </a>
         </div>
         <h3 class="font-semibold mx-3" v-else >{{ user.repos.message }} <a class="text-indigo-400 hover:text-indigo-500 underline" target="__blank" :href="user.repos.documentation_url">Click Here</a></h3>
       </div>
+      <small class="text-gray-400 text-center font-bold">{{user.countPublicRepos}} registros disponibles...</small>
+      <div id="paginador_buttons" v-show="user.repos.length > 4" class="flex flex-row justify-center space-x-2 w-full">
+        <button type="button" v-show="CurrentPage != 1" v-on:click="CurrentPage -= 1" class="mr-2 bg-indigo-400 hover:bg-indigo-300 rounded-md p-2 text-white font-bold" >Anterior</button>
+        <button type="button" v-show="CurrentPage * NumResults / user.repos.length < 1" v-on:click="CurrentPage += 1" class="mr-2 bg-indigo-400 hover:bg-indigo-300 rounded-md p-2 text-white font-bold">Siguiente</button>
+      </div>
     </div>
-    
+
     <div class="flex flex-row flex-wrap justify-center transition duration-500 ease-in-out items-center p-2 text-center">
-      <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; {{ year }} / Creado por {{ user.name }}</span> 
+      <span class="font-semibold mt-2 text-lg text-purple-500"> &copy; {{ year }} / Creado por {{ user.name }}</span>
     </div>
   </div>
 </body>

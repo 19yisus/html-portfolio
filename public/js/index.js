@@ -4,6 +4,8 @@ const store = {
       year: null,
       navBar: false,
       Dark: false,
+      CurrentPage: 1,
+      NumResults: 4,
       user:{
         name: null,
         avatar: null,
@@ -23,21 +25,20 @@ const store = {
   },
   methods:{
     async GetDatosUserFromGit(){
-      await fetch(`${this.urlGit}`,{ headers:{ 'Authorization': `Basic ${this.token}`}      
+      await fetch(`${this.urlGit}`,{ headers:{ 'Authorization': `Basic ${this.token}`}
       }).then( (response) => response.json()).then( res =>{
         this.user.name = res.name;
         this.user.avatar = res.avatar_url;
         this.user.alias = res.login;
         this.user.email = res.email;
         this.user.bioInfo = res.bio;
-        this.user.creado = res.created_at;
         this.user.giturl = res.html_url;
         this.user.countPublicRepos = res.public_repos;
         this.user.urlPublicRepos = res.repos_url
       }).catch( Err => console.error(Err))
     },
     async GetDatosRepo(){
-      await fetch(`${this.urlGit}/repos`).then( response => response.json()).then( res => this.user.repos = res).catch( Err => console.error(Err))
+      await fetch(`${this.urlGit}/repos`).then( response => response.json()).then( res => this.user.repos = res ).catch( Err => console.error(Err))
     },
     DarkMode(){
       let htmlClasses = document.querySelector('html').classList;
@@ -61,16 +62,11 @@ const store = {
     if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.querySelector('html').classList.add('dark')
       this.Dark = true;
-    }else if (localStorage.theme === 'dark') {
-      document.querySelector('html').classList.add('dark')
-      this.Dark = true;
     }
-
     this.year = new Date().getFullYear();
-
     await this.GetDatosUserFromGit()
-    await this.GetDatosRepo()    
+    await this.GetDatosRepo()
   }
 };
 
-Vue.createApp(store).mount('#app');
+const app = Vue.createApp(store).mount('#app');
